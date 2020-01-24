@@ -1,7 +1,5 @@
 package collections.model;
 
-import collections.student.Student;
-
 import java.util.Arrays;
 
 public class DynamicArray {
@@ -21,13 +19,10 @@ public class DynamicArray {
         }
     }
 
-    public int size() {
-        return size;
-    }
-
-    public Student get(int index) {
-        checkRange(index);
-        return data[index];
+    public boolean add(Student student) {
+        ensureCapacity();
+        data[size++] = student;
+        return true;
     }
 
     public boolean remove(Student s) {
@@ -68,14 +63,17 @@ public class DynamicArray {
         es[this.size = newSize] = null;
     }
 
-    public boolean add(Student student) {
-        ensureCapacity();
-        data[size++] = student;
-        return true;
+    public int size() {
+        return size;
+    }
+
+    public Student get(int index) {
+        checkRange(index);
+        return data[index];
     }
 
     public void ensureCapacity() {
-        int newCapacity = data.length*2;
+        int newCapacity = data.length * 2;
         data = Arrays.copyOf(data, newCapacity);
     }
 
@@ -85,9 +83,10 @@ public class DynamicArray {
         }
     }
 
-    public static void print(DynamicArray dynamicArray) {
-        for (int i = 0; i < dynamicArray.size; i++) {
-            System.out.println(dynamicArray.get(i));
+    public void print() {
+        System.out.println("Dynamic array: ");
+        for (int i = 0; i < this.size; i++) {
+            System.out.println(this.get(i));
         }
     }
 }

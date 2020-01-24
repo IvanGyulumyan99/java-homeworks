@@ -1,7 +1,6 @@
 package collections.comparator;
 
-import collections.student.Student;
-
+import collections.model.Student;
 import java.util.Comparator;
 
 public class CompareStudentAgeDescendingComparator implements Comparator<Student> {

@@ -1,25 +1,17 @@
 package collections.model;
 
-import collections.student.Student;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class DoublyLinkedList {
     private Node tail;
     private Node head;
     private int size;
+    private int index = 0;
+    ListIterator it = new ListIterator();
 
     public DoublyLinkedList() {
 
-    }
-
-    public void printForward() {
-        if (head == null) {
-            return;
-        }
-        Node temp = head;
-        while (temp != null) {
-            System.out.println(temp.data);
-            temp = temp.next;
-        }
     }
 
     public void push(Student student) {
@@ -34,7 +26,6 @@ public class DoublyLinkedList {
         size++;
     }
 
-
     public void addLast(Student student) {
         Node newNode = new Node(student);
         if (isEmpty()) {
@@ -48,9 +39,7 @@ public class DoublyLinkedList {
     }
 
     public Node pop() {
-        if (isEmpty()) {
-            throw new RuntimeException("Our list is empty, there's nothing to delete!");
-        }
+        checkEmpty();
         Node temp = head;
         if (head == tail) {
             tail = null;
@@ -64,9 +53,7 @@ public class DoublyLinkedList {
     }
 
     public Node removeLast() {
-        if (isEmpty()) {
-            throw new RuntimeException("Our list is empty, there's nothing to delete!");
-        }
+        checkEmpty();
         Node temp = tail;
         if (head == tail) {
             head = null;
@@ -79,12 +66,41 @@ public class DoublyLinkedList {
         return head;
     }
 
+    public void printForward() {
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
+
+    private void checkEmpty() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Our list is empty, there's nothing to delete!");
+        }
+    }
+
     public int size() {
         return size;
     }
 
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    private class ListIterator implements Iterator<Node> {
+
+        public boolean hasNext() {
+            return index < size;
+        }
+
+        public Node next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            Node temp = head;
+            head = head.next;
+            index++;
+            return temp;
+        }
     }
 
     private class Node {
@@ -97,5 +113,9 @@ public class DoublyLinkedList {
             this.data = data;
         }
 
+        @Override
+        public String toString() {
+            return data.getFirstName() + " " + data.getLastName();
+        }
     }
 }

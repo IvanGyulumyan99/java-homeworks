@@ -1,4 +1,4 @@
-package collections.student;
+package collections.model;
 
 import java.util.Collection;
 
