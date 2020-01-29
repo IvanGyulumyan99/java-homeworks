@@ -1,18 +1,11 @@
 package collections.model;
 
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class DoublyLinkedList {
     private Node tail;
     private Node head;
     private int size;
-    private int index = 0;
-    ListIterator it = new ListIterator();
-
-    public DoublyLinkedList() {
-
-    }
 
     public void push(Student student) {
         Node newNode = new Node(student);
@@ -32,14 +25,28 @@ public class DoublyLinkedList {
             head = newNode;
         } else {
             tail.next = newNode;
+            newNode.prev = tail;
         }
-        newNode.prev = tail;
         tail = newNode;
         size++;
     }
 
+    public void print() {
+        if (head == null) {
+            return;
+        }
+        Node temp = head;
+        while (temp != null) {
+            System.out.println(temp);
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+
     public Node pop() {
-        checkEmpty();
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
         Node temp = head;
         if (head == tail) {
             tail = null;
@@ -49,11 +56,14 @@ public class DoublyLinkedList {
         head = head.next;
         temp.next = null;
         size--;
-        return head;
+        System.out.println(temp + " is deleted from the head of List \n");
+        return temp;
     }
 
     public Node removeLast() {
-        checkEmpty();
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
         Node temp = tail;
         if (head == tail) {
             head = null;
@@ -63,19 +73,8 @@ public class DoublyLinkedList {
         tail = tail.prev;
         temp.prev = null;
         size--;
-        return head;
-    }
-
-    public void printForward() {
-        while (it.hasNext()) {
-            System.out.println(it.next());
-        }
-    }
-
-    private void checkEmpty() {
-        if (isEmpty()) {
-            throw new NoSuchElementException("Our list is empty, there's nothing to delete!");
-        }
+        System.out.println(temp + " is deleted from the tail of List \n");
+        return temp;
     }
 
     public int size() {
@@ -84,23 +83,6 @@ public class DoublyLinkedList {
 
     public boolean isEmpty() {
         return size == 0;
-    }
-
-    private class ListIterator implements Iterator<Node> {
-
-        public boolean hasNext() {
-            return index < size;
-        }
-
-        public Node next() {
-            if (!hasNext()) {
-                throw new NoSuchElementException();
-            }
-            Node temp = head;
-            head = head.next;
-            index++;
-            return temp;
-        }
     }
 
     private class Node {

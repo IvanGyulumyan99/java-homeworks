@@ -21,9 +21,13 @@ public class Main {
         StoredStudents temp = new StoredStudents();
         temp.initDynamicArray(ivan, anna, narek, arthur);
         temp.initLinkedList(anna, narek, ivan, hakob);
-        dynamicArrayOfStudents.print();
-        doublyLinkedList.printForward();
-
+        doublyLinkedList.push(narek);
+        doublyLinkedList.addLast(ivan);
+        doublyLinkedList.print();
+        doublyLinkedList.pop();
+        doublyLinkedList.print();
+        doublyLinkedList.removeLast();
+        doublyLinkedList.print();
 
     }
 }

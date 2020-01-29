@@ -73,8 +73,10 @@ public class DynamicArray {
     }
 
     public void ensureCapacity() {
-        int newCapacity = data.length * 2;
-        data = Arrays.copyOf(data, newCapacity);
+        if (size == data.length) {
+            int newCapacity = data.length * 2;
+            data = Arrays.copyOf(data, newCapacity);
+        }
     }
 
     private void checkRange(int index) {
