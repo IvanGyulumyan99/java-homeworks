@@ -64,7 +64,7 @@ public class Student implements Comparable<Student> {
 
     @Override
     public String toString() {
-        return this.firstName + " " + this.lastName;
+        return this.firstName + " " + this.lastName + " " + this.age;
     }
 
     static public void print(Collection<Student> c) {
