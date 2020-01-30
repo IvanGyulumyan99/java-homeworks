@@ -1,11 +1,10 @@
 package collections.main;
 
-import collections.comparator.CompareStudentNameAscendingAndAgeDescending;
+import collections.comparator.NameAndAgeCompare;
 import collections.model.*;
 import collections.model.Student;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
 
 import static collections.model.StoredStudents.*;
 
@@ -28,30 +27,30 @@ public class Main {
         temp.initDynamicArray(ivan, anna, narek, arthur);
         temp.initLinkedList(anna, narek, ivan, hakob);
 
-//        presenting Linked List work
-//        doublyLinkedList.push(narek);
-//        doublyLinkedList.addLast(ivan);
-//        doublyLinkedList.print();
-//        doublyLinkedList.pop();
-//        doublyLinkedList.print();
-//        doublyLinkedList.removeLast();
-//        doublyLinkedList.print();
+        doublyLinkedList.push(narek);
+        doublyLinkedList.addLast(ivan);
+        doublyLinkedList.print();
+        doublyLinkedList.pop();
+        doublyLinkedList.print();
+        doublyLinkedList.removeLast();
+        doublyLinkedList.print();
 
-//        presenting comparator work
-//        ArrayList<Student> arrayList = new ArrayList<Student>();
-//        arrayList.add(anna);
-//        arrayList.add(ivan);
-//        arrayList.add(hakob);
-//        arrayList.add(narek20);
-//        arrayList.add(narek);
-//        arrayList.add(arthur);
-//        arrayList.add(narek22);
-//        arrayList.add(ivan18);
-//        CompareStudentNameAscendingAndAgeDescending cmp = new CompareStudentNameAscendingAndAgeDescending();
-//        arrayList.sort(cmp);
-//        for (Student tmp : arrayList) {
-//            System.out.println(tmp);
-//        }
+        ArrayList<Student> arrayList = new ArrayList<>();
+        arrayList.add(anna);
+        arrayList.add(ivan);
+        arrayList.add(hakob);
+        arrayList.add(narek20);
+        arrayList.add(narek);
+        arrayList.add(arthur);
+        arrayList.add(narek22);
+        arrayList.add(ivan18);
+        NameAndAgeCompare cmp = new NameAndAgeCompare();
+        arrayList.sort(cmp);
+        for (Student tmp : arrayList) {
+            System.out.println(tmp);
+        }
+
+        dynamicArrayOfStudents.get(-11);
 
     }
 }

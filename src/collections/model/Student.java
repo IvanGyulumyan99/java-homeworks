@@ -67,7 +67,7 @@ public class Student implements Comparable<Student> {
         return this.firstName + " " + this.lastName + " " + this.age;
     }
 
-    static public void print(Collection<Student> c) {
+    public static void print(Collection<Student> c) {
         for (Student temp : c) {
             System.out.println(temp);
         }

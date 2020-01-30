@@ -1,11 +1,21 @@
 package collections.model;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class DoublyLinkedList {
     private Node tail;
     private Node head;
     private int size;
+    private DoublyLinkedListIterator iterator;
+
+    public DoublyLinkedList() {
+        iterator = new DoublyLinkedListIterator(head);
+    }
+
+    public DoublyLinkedListIterator getIterator() {
+        return new DoublyLinkedListIterator(head);
+    }
 
     public void push(Student student) {
         Node newNode = new Node(student);
@@ -32,13 +42,9 @@ public class DoublyLinkedList {
     }
 
     public void print() {
-        if (head == null) {
-            return;
-        }
-        Node temp = head;
-        while (temp != null) {
-            System.out.println(temp);
-            temp = temp.next;
+        DoublyLinkedListIterator iterator = getIterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
         System.out.println();
     }
@@ -56,7 +62,7 @@ public class DoublyLinkedList {
         head = head.next;
         temp.next = null;
         size--;
-        System.out.println(temp + " is deleted from the head of List \n");
+        System.out.println(temp + " has been deleted from the head of List \n");
         return temp;
     }
 
@@ -73,7 +79,7 @@ public class DoublyLinkedList {
         tail = tail.prev;
         temp.prev = null;
         size--;
-        System.out.println(temp + " is deleted from the tail of List \n");
+        System.out.println(temp + " has been deleted from the tail of List \n");
         return temp;
     }
 
@@ -100,4 +106,29 @@ public class DoublyLinkedList {
             return data.getFirstName() + " " + data.getLastName();
         }
     }
+
+    public class DoublyLinkedListIterator implements Iterator<Student> {
+
+        private Node next;
+
+        public DoublyLinkedListIterator(Node head) {
+            this.next = head;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return next != null;
+        }
+
+        @Override
+        public Student next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            Student student = next.data;
+            next = next.next;
+            return student;
+        }
+    }
 }
+

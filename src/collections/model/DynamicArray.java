@@ -80,7 +80,7 @@ public class DynamicArray {
     }
 
     private void checkRange(int index) {
-        if (index >= size) {
+        if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
     }
