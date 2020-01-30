@@ -1,6 +1,6 @@
 package collections.main;
 
-import collections.comparator.NameAndAgeCompare;
+import collections.comparator.StudentNameAscendingAndAgeDescendingComparator;
 import collections.model.*;
 import collections.model.Student;
 
@@ -44,7 +44,7 @@ public class Main {
         arrayList.add(arthur);
         arrayList.add(narek22);
         arrayList.add(ivan18);
-        NameAndAgeCompare cmp = new NameAndAgeCompare();
+        StudentNameAscendingAndAgeDescendingComparator cmp = new StudentNameAscendingAndAgeDescendingComparator();
         arrayList.sort(cmp);
         for (Student tmp : arrayList) {
             System.out.println(tmp);
