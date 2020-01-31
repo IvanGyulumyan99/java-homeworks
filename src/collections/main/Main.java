@@ -49,6 +49,11 @@ public class Main {
         for (Student tmp : arrayList) {
             System.out.println(tmp);
         }
+        System.out.println();
+
+        dynamicArrayOfStudents.print();
+        System.out.println("removed anna։ " + dynamicArrayOfStudents.remove(new Student("Anna", "Martirosyan", 18)));
+        dynamicArrayOfStudents.print();
 
         dynamicArrayOfStudents.get(-11);
 

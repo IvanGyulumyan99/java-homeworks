@@ -1,6 +1,7 @@
 package collections.model;
 
 import java.util.Collection;
+import java.util.Objects;
 
 public class Student implements Comparable<Student> {
 
@@ -60,6 +61,24 @@ public class Student implements Comparable<Student> {
             return new Student(this);
         }
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Student student = (Student) o;
+        return firstName.equals(student.firstName) && lastName.equals(student.lastName) && age == student.age;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, age);
     }
 
     @Override
