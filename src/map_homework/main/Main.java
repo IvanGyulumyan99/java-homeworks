@@ -1,9 +1,12 @@
 package map_homework.main;
 
+import map_homework.model.Months;
 import map_homework.model.Student;
 import map_homework.util.ArrayListUtils;
+import map_homework.util.MonthUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Main {
@@ -40,6 +43,13 @@ public class Main {
         HashMap<String, Integer> secondMap = ArrayListUtils.getCountOfStudentsInFaculties(studentsList);
         ArrayListUtils.printFacultyMembersQuantityMap(secondMap);
 
+        System.out.println("April holidays: " + Arrays.toString(Months.April.getHolidays()));
+        System.out.println("Days in march: " + Months.March.getDays());
+        MonthUtils.checkHoliday(Months.February, 32);
+        System.out.println(MonthUtils.checkHoliday(Months.March, 8));
+        System.out.println(MonthUtils.checkHoliday(Months.March, 21));
+        System.out.println();
+        MonthUtils.printEnum(Months.April);
     }
 
 }
