@@ -1,5 +1,6 @@
 package map_homework.util;
 
+import map_homework.model.Faculties;
 import map_homework.model.Student;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class ArrayListUtils {
     }
 
     public static HashMap getCountOfStudentsInFaculties(ArrayList<Student> studentsList) {
-        HashMap<String, Integer> tempMap = new HashMap<>();
+        HashMap<Faculties, Integer> tempMap = new HashMap<>();
         for (Student student : studentsList) {
             Integer countOfStudentsInFaculties = tempMap.get(student.getFaculty());
             if (countOfStudentsInFaculties == null) {
@@ -40,8 +41,8 @@ public class ArrayListUtils {
         System.out.println();
     }
 
-    public static void printFacultyMembersQuantityMap(HashMap<String, Integer> map) {
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+    public static void printFacultyMembersQuantityMap(HashMap<Faculties, Integer> map) {
+        for (Map.Entry<Faculties, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
         System.out.println();
