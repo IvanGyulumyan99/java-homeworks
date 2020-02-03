@@ -12,8 +12,8 @@ public class MonthUtils {
         return false;
     }
 
-    public static void printEnum(Months month) {
-        for (Months temp : month.values()) {
+    public static void printMonthsEnum() {
+        for (Months temp : Months.values()) {
             System.out.println(temp);
         }
     }

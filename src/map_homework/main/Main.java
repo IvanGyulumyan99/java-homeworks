@@ -1,5 +1,6 @@
 package map_homework.main;
 
+import map_homework.model.Faculties;
 import map_homework.model.Months;
 import map_homework.model.Student;
 import map_homework.util.ArrayListUtils;
@@ -12,21 +13,21 @@ import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
         Student anna = new Student("Anna", "Martirosyan", 18,
-                "093123456", "Law");
+                "093123456", Faculties.LAW);
         Student anna2 = new Student("Anna", "Martirosyan", 23,
-                "093456789", "Math");
+                "093456789", Faculties.MATH);
         Student anna3 = new Student("Anna", "Atabekyan", 23,
-                "093456789", "Math");
+                "093456789", Faculties.MATH);
         Student anna4 = new Student("Anna", "Martirosyan", 26,
-                "093987654", "Physics");
+                "093987654", Faculties.PHYSICS);
         Student ivan = new Student("Ivan", "Gyulumyan", 20,
-                "093888888", "Math");
+                "093888888", Faculties.MATH);
         Student ivan2 = new Student("Ivan", "Gyulumyan", 24,
-                "093884448", "Physics");
+                "093884448", Faculties.PHYSICS);
         Student narek1 = new Student("Narek", "Asatryan", 22,
-                "093364657", "Math");
+                "093364657", Faculties.PHYSICS);
         Student narek2 = new Student("Narek", "Asatryan", 22,
-                "093364657", "Math");
+                "093364657", Faculties.MATH);
 
         ArrayList<Student> studentsList = new ArrayList<>();
         studentsList.add(anna);
@@ -40,16 +41,15 @@ public class Main {
 
         HashMap<Student, Integer> firstMap = ArrayListUtils.getCountOfStudentsOccurrences(studentsList);
         ArrayListUtils.printSameStudentsOccurrencesMap(firstMap);
-        HashMap<String, Integer> secondMap = ArrayListUtils.getCountOfStudentsInFaculties(studentsList);
+        HashMap<Faculties, Integer> secondMap = ArrayListUtils.getCountOfStudentsInFaculties(studentsList);
         ArrayListUtils.printFacultyMembersQuantityMap(secondMap);
 
-        System.out.println("April holidays: " + Arrays.toString(Months.April.getHolidays()));
-        System.out.println("Days in march: " + Months.March.getDays());
-        MonthUtils.checkHoliday(Months.February, 32);
-        System.out.println(MonthUtils.checkHoliday(Months.March, 8));
-        System.out.println(MonthUtils.checkHoliday(Months.March, 21));
-        System.out.println();
-        MonthUtils.printEnum(Months.April);
+        System.out.println("April holidays: " + Arrays.toString(Months.APRIL.getHolidays()));
+        System.out.println("Days in march: " + Months.MARCH.getDays());
+        MonthUtils.checkHoliday(Months.FEBRUARY, 32);
+        System.out.println(MonthUtils.checkHoliday(Months.MARCH, 8));
+        System.out.println(MonthUtils.checkHoliday(Months.MARCH, 21));
+        MonthUtils.printMonthsEnum();
     }
 
 }
