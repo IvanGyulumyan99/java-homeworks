@@ -1,7 +1,7 @@
 package map_homework.main;
 
 import map_homework.model.Faculties;
-import map_homework.model.Months;
+import map_homework.model.Month;
 import map_homework.model.Student;
 import map_homework.util.ArrayListUtils;
 import map_homework.util.MonthUtils;
@@ -44,11 +44,11 @@ public class Main {
         HashMap<Faculties, Integer> secondMap = ArrayListUtils.getCountOfStudentsInFaculties(studentsList);
         ArrayListUtils.printFacultyMembersQuantityMap(secondMap);
 
-        System.out.println("April holidays: " + Arrays.toString(Months.APRIL.getHolidays()));
-        System.out.println("Days in march: " + Months.MARCH.getDays());
-        MonthUtils.checkHoliday(Months.FEBRUARY, 32);
-        System.out.println(MonthUtils.checkHoliday(Months.MARCH, 8));
-        System.out.println(MonthUtils.checkHoliday(Months.MARCH, 21));
+        System.out.println("April holidays: " + Arrays.toString(Month.APRIL.getHolidays()));
+        System.out.println("Days in march: " + Month.MARCH.getDays());
+        MonthUtils.checkHoliday(Month.FEBRUARY, 32);
+        System.out.println(MonthUtils.checkHoliday(Month.MARCH, 8));
+        System.out.println(MonthUtils.checkHoliday(Month.MARCH, 21));
         MonthUtils.printMonthsEnum();
     }
 
