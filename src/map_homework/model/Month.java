@@ -1,6 +1,6 @@
 package map_homework.model;
 
-public enum Months {
+public enum Month {
     JANUARY(31, 1, 2, 3, 4, 5, 6, 7, 28),
     FEBRUARY(28),
     MARCH(31, 8),
@@ -25,7 +25,7 @@ public enum Months {
         return holidays;
     }
 
-    Months(int days, int... holidays) {
+    Month(int days, int... holidays) {
         this.days = days;
         this.holidays = holidays;
     }
