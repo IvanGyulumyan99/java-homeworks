@@ -35,17 +35,25 @@ public class ArrayListUtils {
     }
 
     public static void printSameStudentsOccurrencesMap(HashMap<Student, Integer> map) {
-        for (Map.Entry<Student, Integer> entry : map.entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue());
+        if (map.isEmpty()) {
+            System.out.println("There's no students");
+        } else {
+            for (Map.Entry<Student, Integer> entry : map.entrySet()) {
+                System.out.println(entry.getKey() + " " + entry.getValue());
+            }
+            System.out.println();
         }
-        System.out.println();
     }
 
     public static void printFacultyMembersQuantityMap(HashMap<Faculties, Integer> map) {
-        for (Map.Entry<Faculties, Integer> entry : map.entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue());
+        if (map.isEmpty()) {
+            System.out.println("There's no students");
+        } else {
+            for (Map.Entry<Faculties, Integer> entry : map.entrySet()) {
+                System.out.println(entry.getKey() + " " + entry.getValue());
+            }
+            System.out.println();
         }
-        System.out.println();
     }
 
 }

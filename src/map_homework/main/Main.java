@@ -30,14 +30,14 @@ public class Main {
                 "093364657", Faculties.MATH);
 
         ArrayList<Student> studentsList = new ArrayList<>();
-        studentsList.add(anna);
-        studentsList.add(anna2);
-        studentsList.add(anna3);
-        studentsList.add(anna4);
-        studentsList.add(ivan);
-        studentsList.add(ivan2);
-        studentsList.add(narek1);
-        studentsList.add(narek2);
+//        studentsList.add(anna);
+//        studentsList.add(anna2);
+//        studentsList.add(anna3);
+//        studentsList.add(anna4);
+//        studentsList.add(ivan);
+//        studentsList.add(ivan2);
+//        studentsList.add(narek1);
+//        studentsList.add(narek2);
 
         HashMap<Student, Integer> firstMap = ArrayListUtils.getCountOfStudentsOccurrences(studentsList);
         ArrayListUtils.printSameStudentsOccurrencesMap(firstMap);
