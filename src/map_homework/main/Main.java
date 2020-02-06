@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
         Student anna = new Student("Anna", "Martirosyan", 18,
-                "093123456", Faculties.LAW);
+                "093123456", Faculties.MATH);
         Student anna2 = new Student("Anna", "Martirosyan", 23,
                 "093456789", Faculties.MATH);
         Student anna3 = new Student("Anna", "Atabekyan", 23,
@@ -30,14 +30,14 @@ public class Main {
                 "093364657", Faculties.MATH);
 
         ArrayList<Student> studentsList = new ArrayList<>();
-//        studentsList.add(anna);
-//        studentsList.add(anna2);
-//        studentsList.add(anna3);
-//        studentsList.add(anna4);
-//        studentsList.add(ivan);
-//        studentsList.add(ivan2);
-//        studentsList.add(narek1);
-//        studentsList.add(narek2);
+        studentsList.add(anna);
+        studentsList.add(anna2);
+        studentsList.add(anna3);
+        studentsList.add(anna4);
+        studentsList.add(ivan);
+        studentsList.add(ivan2);
+        studentsList.add(narek1);
+        studentsList.add(narek2);
 
         HashMap<Student, Integer> firstMap = ArrayListUtils.getCountOfStudentsOccurrences(studentsList);
         ArrayListUtils.printSameStudentsOccurrencesMap(firstMap);
@@ -51,5 +51,4 @@ public class Main {
         System.out.println(MonthUtils.checkHoliday(Month.MARCH, 21));
         MonthUtils.printMonthsEnum();
     }
-
 }

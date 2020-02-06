@@ -23,6 +23,9 @@ public class ArrayListUtils {
 
     public static HashMap getCountOfStudentsInFaculties(ArrayList<Student> studentsList) {
         HashMap<Faculties, Integer> tempMap = new HashMap<>();
+        for (Faculties faculty : Faculties.values()) {
+            tempMap.put(faculty, 0);
+        }
         for (Student student : studentsList) {
             Integer countOfStudentsInFaculties = tempMap.get(student.getFaculty());
             if (countOfStudentsInFaculties == null) {
