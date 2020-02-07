@@ -1,4 +1,4 @@
-package set;
+package set.model;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -35,7 +35,7 @@ public class Student implements Comparable<Student> {
 
     @Override
     public int compareTo(Student student) {
-        return this.lastName.compareToIgnoreCase(student.lastName);
+        return this.age - student.age;
     }
 
     @Override
