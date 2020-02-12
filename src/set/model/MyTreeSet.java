@@ -5,18 +5,18 @@ import set.interfaces.MyTreeSetInterface;
 /**
  * The MyTreeSet class is a simple implementation of TreeSet which stores object in sorted order
  *
- * @param <E>
+ * @param <E> an object type we want to work with(Comparator must be implemented)
  * @author Ivan Gyulumyan
- * @version 1.0
+ * @version 1.1
  * @since 02-07-2020
  */
-
 public class MyTreeSet<E extends Comparable<E>> implements MyTreeSetInterface<E> {
 
     private Node root;
 
     /**
-     * this method calls private add method, add is divided on two parts because of it's recursive
+     * this method calls private add method and object to our TreeSet,
+     * add is divided on two parts because it's recursive
      *
      * @param elem is element which we want to add in our Tree
      * @return true if object is added to the tree correctly and false otherwise
@@ -109,7 +109,7 @@ public class MyTreeSet<E extends Comparable<E>> implements MyTreeSetInterface<E>
     /**
      * this method checks if tree contains element
      *
-     * @param root
+     * @param root current root of our TreeSet
      * @param elem element which we wants to check
      * @return true if element contains in TreeSet and false otherwise
      */
@@ -126,7 +126,7 @@ public class MyTreeSet<E extends Comparable<E>> implements MyTreeSetInterface<E>
     }
 
     /**
-     * @return size of tree
+     * @return size of TreeSet
      */
     @Override
     public int size() {
@@ -134,10 +134,10 @@ public class MyTreeSet<E extends Comparable<E>> implements MyTreeSetInterface<E>
     }
 
     /**
-     * this method return size of tree
+     * recursively traverse through our tree and counts quantity of elements
      *
-     * @param node
-     * @return size
+     * @param node Node of TreeSet from which we want to start counting elements quantity
+     * @return size of our TreeSet
      */
     private int size(Node node) {
         if (node == null) {
@@ -156,6 +156,10 @@ public class MyTreeSet<E extends Comparable<E>> implements MyTreeSetInterface<E>
         System.out.println();
     }
 
+    /**
+     * recursively traverse through TreeSet and print it sorted order
+     * @param root Node from which we want to start printing TreeSet
+     */
     private void print(Node root) {
         if (root != null) {
             print(root.left);
@@ -173,5 +177,4 @@ public class MyTreeSet<E extends Comparable<E>> implements MyTreeSetInterface<E>
             this.elem = elem;
         }
     }
-
 }

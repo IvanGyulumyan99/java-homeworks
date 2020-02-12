@@ -2,6 +2,9 @@ package set.main;
 
 import set.model.*;
 
+/**
+ * Main class is used to show some test cases of our TreeSet
+ */
 public class Main {
     public static void main(String[] args) {
         Student vazgen = new Student.Builder("Vazgen")
