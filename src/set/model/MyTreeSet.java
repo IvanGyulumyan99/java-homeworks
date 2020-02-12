@@ -25,7 +25,7 @@ public class MyTreeSet<E extends Comparable<E>> implements MyTreeSetInterface<E>
     public boolean add(E elem) {
         if (elem != null) {
             root = add(root, elem);
-            return add(root, elem) != null;
+            return root != null;
         }
         return false;
     }
@@ -35,7 +35,7 @@ public class MyTreeSet<E extends Comparable<E>> implements MyTreeSetInterface<E>
      *
      * @param root is our root element which changes recursively while the element is not added
      * @param elem is the element which we want to add
-     * @return
+     * @return returns root if everything passing normally and null if something went wrong
      */
     private Node add(Node root, E elem) {
         if (elem.equals(root)) {
@@ -47,8 +47,6 @@ public class MyTreeSet<E extends Comparable<E>> implements MyTreeSetInterface<E>
             root.left = add(root.left, elem);
         } else if (elem.compareTo(root.elem) > 0) {
             root.right = add(root.right, elem);
-        } else {
-            return root;
         }
         return root;
     }
@@ -63,7 +61,7 @@ public class MyTreeSet<E extends Comparable<E>> implements MyTreeSetInterface<E>
     public boolean remove(E elem) {
         if (elem != null) {
             root = remove(root, elem);
-            return remove(root, elem) != null;
+            return root != null;
         }
         return false;
     }
@@ -73,7 +71,7 @@ public class MyTreeSet<E extends Comparable<E>> implements MyTreeSetInterface<E>
      *
      * @param root its our root element which changes recursively.
      * @param elem element which we want to delete
-     * @return
+     * @return returns null if deleting passed incorrectly and root to traverse recursively
      */
     private Node remove(Node root, E elem) {
         if (root == null) {
@@ -113,7 +111,7 @@ public class MyTreeSet<E extends Comparable<E>> implements MyTreeSetInterface<E>
      *
      * @param root
      * @param elem element which we wants to check
-     * @return
+     * @return true if element contains in TreeSet and false otherwise
      */
     private boolean contains(Node root, E elem) {
         if (root == null) {

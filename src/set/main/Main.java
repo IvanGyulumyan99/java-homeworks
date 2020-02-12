@@ -1,9 +1,6 @@
 package set.main;
 
-import set.model.Coffee;
-import set.model.Glasses;
-import set.model.MyTreeSet;
-import set.model.Student;
+import set.model.*;
 
 public class Main {
     public static void main(String[] args) {

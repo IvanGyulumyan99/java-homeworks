@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.Objects;
 
 public class Student implements Comparable<Student> {
-
     private String firstName;
     private String lastName;
     private int age;
